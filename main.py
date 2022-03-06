@@ -1,4 +1,8 @@
-from HashKeyValue import ChainingHashTable
+from libraries.hash import ChainingHashTable
+from model.package import Package
+import csv
+
+# need to figure out the formatting of the strings in package class
 
 bestMovies = [
     [1, "CITIZEN KANE - 1941"],
@@ -14,27 +18,49 @@ bestMovies = [
     [11, "STAR WARS - 1977"]
 ]
 
-myHash = ChainingHashTable()
+# Hash table instance
+my_hash = ChainingHashTable()
 
-print("\nInsert:")
+def load_package_data(fileName):
+    with open(fileName) as packages:
+        package_data = csv.reader(packages, delimiter=',')
+        next(package_data)  # skip header
+        for package in package_data:
+            id = package[0]
+            address = package[1]
+            city = package[2]
+            state = package[3]
+            zip = package[4]
+            deadline = package[5]
+            mass = package[6]
+            notes = package[7]
 
-for i in range(len(bestMovies)):
-    myHash.insert(bestMovies[i][0], bestMovies[i][1])
-print(myHash.table)
+            # package object
+            p = Package(id, address, city, state, zip, deadline, mass, notes)
+            print(p)
 
-'''
-print("\nSearch:")
-print(myHash.search(1))  # Key=1, item="CITIZEN KANE - 1941"
-print(myHash.search(2))  # Key=11, item="STAR WARS - 1977"; so same bucket and Chaining is working
+            # insert it into the hash table
+            my_hash.insert(id, address)
 
-print("\nUpdate:")
-myHash.insert(1, "Star Trek - 1979")  # 2nd bucket; Key=1, item="Star Trek - 1979"
-print(myHash.table)
+load_package_data('csv_files/package_file.csv')
 
-print("\nRemove:")
-myHash.remove(1)  # Key=1, item="Star Trek - 1979" to remove
-print(myHash.table)
-
-myHash.remove(1)  # Key=11, item="STAR WARS - 1977" to remove
-print(myHash.table)
-'''
+# print("\nInsert:")
+#
+# for i in range(len(bestMovies)):
+#     my_hash.insert(bestMovies[i][0], bestMovies[i][1])
+# print(my_hash.table)
+#
+# print("\nSearch:")
+# print(my_hash.search(1))  # Key=1, item="CITIZEN KANE - 1941"
+# print(my_hash.search(2))  # Key=11, item="STAR WARS - 1977"; so same bucket and Chaining is working
+#
+# print("\nUpdate:")
+# my_hash.insert(1, "Star Trek - 1979")  # 2nd bucket; Key=1, item="Star Trek - 1979"
+# print(my_hash.table)
+#
+# print("\nRemove:")
+# my_hash.remove(1)  # Key=1, item="Star Trek - 1979" to remove
+# print(my_hash.table)
+#
+# my_hash.remove(1)  # Key=11, item="STAR WARS - 1977" to remove
+# print(my_hash.table)table
