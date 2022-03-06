@@ -10,5 +10,5 @@ class Package:
         self.notes = notes
 
     def __str__(self):  # overwite print(Movie) otherwise it will print object reference
-        return "ID: %-1s, Address: %-1s, %s, %s %s, Deadline: %-10s, Mass(kg): %s, Sp. Notes: %s" % (
+        return "ID:{:<5} Address: {:<40}{:<17} {} {:<6} Deadline: {:<9} Mass(kg): {:<3} Sp. Notes: {:<8}".format(
             self.id, self.address, self.city, self.state, self.zip, self.deadline, self.mass, self.notes)
