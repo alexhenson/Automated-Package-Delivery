@@ -1,8 +1,5 @@
-
 # W-1_ChainingHashTable_zyBooks_Key-Value.py
 # Ref: zyBooks: Figure 7.8.2: Hash table using chaining.
-
-import csv, math
 
 # HashTable class using chaining.
 class ChainingHashTable:
@@ -38,7 +35,7 @@ class ChainingHashTable:
         # get the bucket list where this key would be.
         bucket = hash(key) % len(self.table)
         bucket_list = self.table[bucket]
-        # print(bucket_list)
+        print(bucket_list)
 
         # search for the key in the bucket list
         for kv in bucket_list:

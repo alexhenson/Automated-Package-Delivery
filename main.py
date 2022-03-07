@@ -1,48 +1,17 @@
-from libraries.hash import ChainingHashTable
-from model.package import Package
-import csv
+from libraries.load_package_data import load_package_data
 
-# need to figure out the formatting of the strings in package class
+PACKAGE_CSV = 'csv_files/package_file.csv'
 
-bestMovies = [
-    [1, "CITIZEN KANE - 1941"],
-    [2, "CASABLANCA - 1942"],
-    [3, "THE GODFATHER - 1972"],
-    [4, "GONE WITH THE WIND - 1939"],
-    [5, "LAWRENCE OF ARABIA - 1962"],
-    [6, "THE WIZARD OF OZ - 1939"],
-    [7, "THE GRADUATE - 1967"],
-    [8, "ON THE WATERFRONT- 1954"],
-    [9, "SCHINDLER'S LIST -1993"],
-    [10, "SINGIN' IN THE RAIN - 1952"],
-    [11, "STAR WARS - 1977"]
-]
+# Load CSV files into hash tables
+package_hash = load_package_data(PACKAGE_CSV)
 
-# Hash table instance
-my_hash = ChainingHashTable()
+print()
+print("Packages from Hashtable:")
+# Fetch data from Hash Table
+for i in range(len(package_hash.table)):
+    print("{}. {}".format(i + 1, package_hash.search(str(i + 1))))  # 1 to 40 is sent to my_hash.search()
 
-def load_package_data(fileName):
-    with open(fileName) as packages:
-        package_data = csv.reader(packages, delimiter=',')
-        next(package_data)  # skip header
-        for package in package_data:
-            id = package[0]
-            address = package[1]
-            city = package[2]
-            state = package[3]
-            zip = package[4]
-            deadline = package[5]
-            mass = package[6]
-            notes = package[7]
-
-            # package object
-            p = Package(id, address, city, state, zip, deadline, mass, notes)
-            print(p)
-
-            # insert it into the hash table
-            my_hash.insert(id, address)
-
-load_package_data('csv_files/package_file.csv')
+# Need to use zybooks to update insert, search, and remove functions
 
 # print("\nInsert:")
 #
