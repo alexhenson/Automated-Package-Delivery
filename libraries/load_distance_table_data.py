@@ -1,10 +1,9 @@
-from pprint import pprint
 import csv
 
 distance_table = {}
 
-def load_distance_table_data(file_name):
-    with open(file_name) as distances:
+def load_distance_table_data(distance_file):
+    with open(distance_file) as distances:
         rows = list(csv.reader(distances))
         for row in rows:
             row[0] = row[0].strip().splitlines()[0]
@@ -20,5 +19,8 @@ def load_distance_table_data(file_name):
                 else:
                     distance_table[a][b] = distance_table[b][a]
 
-    pprint(distance_table)
+    return distance_table
 
+    # with open(package_file) as packages:
+    #     for row in csv.DictReader(packages):
+    #         print(row['Address'], distance_table[row["Address"]]["HUB"])

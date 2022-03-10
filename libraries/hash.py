@@ -43,7 +43,7 @@ class ChainingHashTable:
         # get the bucket list where this key would be.
         bucket = self.hash_func(key)
         bucket_list = self.table[bucket]
-        #print(bucket_list)
+        print(str(p) for a, p in bucket_list)
 
         # search for the key in the bucket list
         for kv in bucket_list:
