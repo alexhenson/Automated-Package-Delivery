@@ -43,13 +43,12 @@ class ChainingHashTable:
         # get the bucket list where this key would be.
         bucket = self.hash_func(key)
         bucket_list = self.table[bucket]
-        print(str(p) for a, p in bucket_list)
+        #print([str(p) for a, p in bucket_list])
 
         # search for the key in the bucket list
-        for kv in bucket_list:
-            # print (key_value)
-            if kv[0] == key:
-                return kv[1]  # value
+        for k, v in bucket_list:
+            if int(k) == key:
+                return v  # value
         return None
 
     # Removes an item with matching key from the hash table.
