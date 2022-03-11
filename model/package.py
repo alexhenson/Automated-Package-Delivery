@@ -25,7 +25,7 @@ class Package:
             self.notes)
 
     def update_status(self, new_status):
-        if new_status not in ['En Route', 'Delivery Time']:
+        if new_status not in ['EN_ROUTE', 'DELIVERED']:
             raise ValueError("You may only change status to 'En Route' or 'Delivery Time'")
         else:
             self.status = new_status

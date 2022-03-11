@@ -2,6 +2,7 @@ import csv
 
 distance_table = {}
 
+
 def load_distance_table_data(distance_file):
     with open(distance_file) as distances:
         rows = list(csv.reader(distances))

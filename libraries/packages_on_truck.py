@@ -1,5 +1,3 @@
-
-
 def load_packages_on_truck(package_id_list, package_hash):
     # Insert package objects into list
     undelivered_package_list = []

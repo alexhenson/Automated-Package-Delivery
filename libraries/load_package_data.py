@@ -22,7 +22,7 @@ def load_package_data(file_name):
             notes = package[7]
 
             # package object
-            p = Package(id, address, city, state, zip, deadline, mass, "AT THE HUB", None, notes)
+            p = Package(id, address, city, state, zip, deadline, mass, "AT HUB", None, notes)
             #print(p)
 
             # insert it into the hash table
