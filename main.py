@@ -51,6 +51,7 @@ print('Truck 2:')
 print_packages_on_truck(undelivered_package_list_2)
 
 sorted_undelivered_package_list_1 = quicksort(undelivered_package_list_1, distance_table)
+print(sorted_undelivered_package_list_1)
 
 # # Greedy Algorithm: Min Expenses => Max Profits
 # def greedy_distance_algorithm(budget):

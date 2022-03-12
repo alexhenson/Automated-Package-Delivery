@@ -11,7 +11,10 @@ def quicksort(array, distance_table):
     low, same, high = [], [], []
 
     # Select your `pivot` element randomly
-    pivot = array[randint(0, len(array) - 1)] #need to cross check package table with addresses in array
+    pivot = array[randint(0, len(array) - 1)]
+    # if pivot == distance_table[pivot]
+    #
+    #
 
     for item in array:
         # Elements that are smaller than the `pivot` go to
