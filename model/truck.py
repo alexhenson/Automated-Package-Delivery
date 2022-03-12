@@ -3,10 +3,10 @@ class Truck:
                  curr_mileage, curr_time):
         self.truck_id = truck_id
         self.undelivered_package_list = undelivered_package_list
-        self.delivered_package_list = delivered_package_list
+        self.delivered_package_list = delivered_package_list #might be extraneous, can use helper to just check for undelivered packages)
         self.visited_addresses = visited_addresses
         self.curr_location = curr_location
-        self.curr_mileage = curr_mileage
+        self.curr_mileage = curr_mileage # this should be total miles and be derived
         self.curr_time = curr_time
         self.speed = 18
 

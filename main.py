@@ -25,7 +25,7 @@ distance_table = load_distance_table_data(DISTANCE_CSV)
 # for i in range(len(package_hash.table)):
 #     print("{:<2}. {}".format(i, [str(p) for a, p in package_hash.get_bucket(str(i + 1))]))  # 1 to 40 is sent to my_hash.search()
 
-# pprint(distance_table)
+pprint(distance_table)
 
 # Develop a property to track early shipments upon results from testing
 package_id_list_1a = [14, 15, 16, 34, 20, 21, 31, 32, 40, 4, 27, 7, 1]
@@ -50,8 +50,8 @@ print_packages_on_truck(undelivered_package_list_1)
 print('Truck 2:')
 print_packages_on_truck(undelivered_package_list_2)
 
-sorted_undelivered_package_list_1 = quicksort(undelivered_package_list_1, distance_table)
-print(sorted_undelivered_package_list_1)
+# sorted_undelivered_package_list_1 = quicksort(undelivered_package_list_1, distance_table)
+# print(sorted_undelivered_package_list_1)
 
 # # Greedy Algorithm: Min Expenses => Max Profits
 # def greedy_distance_algorithm(budget):

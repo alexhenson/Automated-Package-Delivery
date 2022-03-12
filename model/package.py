@@ -10,6 +10,7 @@ class Package:
         self.status = status
         self.time_delivered = time_delivered
         self.notes = notes
+        self.mileage = 0  #distance traveled from the previous delivery to have the truck add up all the mileage at the end to know distance traveled so far
 
     def __str__(self):
         return "ID: {:<3} Address: {:<40}{:<17} {} {:<6} Deadline: {:<9} Mass(kg): {:<3} Status: {:<11} Time Delivered: {} Sp. Notes: {:<60}".format(
@@ -33,3 +34,4 @@ class Package:
     def update_time_delivered(self, new_time_delivered):
         self.time_delivered = new_time_delivered
 
+# helper, is_delivered (and ! for the other one or maybe just code the inverse the explicitly)

@@ -14,6 +14,7 @@ def quicksort(array, distance_table):
     pivot = array[randint(0, len(array) - 1)]
     # if pivot == distance_table[pivot]
     #
+    # problem is that i want to sort an array based on another dictionary's values
     #
 
     for item in array:
