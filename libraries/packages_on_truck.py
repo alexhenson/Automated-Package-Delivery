@@ -6,6 +6,7 @@ def load_packages_on_truck(package_id_list, package_hash):
     return undelivered_package_list
 
 
+# Need to change this to print based on status
 def print_packages_on_truck(undelivered_package_list):
     # Print out package info
     for i, package_id in enumerate(undelivered_package_list):

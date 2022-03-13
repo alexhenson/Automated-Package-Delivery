@@ -1,6 +1,6 @@
 import csv
 
-distance_table = {}
+# distance_table = {}
 new_distance_table = []
 
 def load_distance_table_data(distance_file):

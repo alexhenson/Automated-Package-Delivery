@@ -7,7 +7,6 @@ from libraries.load_package_data import load_package_data
 from libraries.load_distance_table_data import load_distance_table_data
 from model.truck import Truck
 from libraries.packages_on_truck import *
-from libraries.quicksort import quicksort
 
 PACKAGE_CSV = 'csv_files/package_file.csv'
 DISTANCE_CSV = 'csv_files/distance_table.csv'

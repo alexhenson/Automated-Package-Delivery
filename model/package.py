@@ -34,4 +34,7 @@ class Package:
     def update_time_delivered(self, new_time_delivered):
         self.time_delivered = new_time_delivered
 
+    def is_delivered(self):
+        return self.status == "DELIVERED"
+
 # helper, is_delivered (and ! for the other one or maybe just code the inverse the explicitly)
