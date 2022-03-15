@@ -27,7 +27,7 @@ for i in range(len(package_hash.table)):
 print(distance_table)
 
 # Develop a property to track early shipments upon results from testing
-package_id_list_1a = [14, 15, 16, 34, 20, 21, 31, 32, 40, 4, 27, 7, 1]
+package_id_list_1a = [14, 15, 16, 34, 20, 21, 31, 32, 40, 4, 29, 7, 1]
 package_id_list_2 = [3, 13, 39, 30, 8, 37, 9, 38, 5, 10, 36, 17, 12, 23, 18, 11]
 
 package_list_1 = load_packages_on_truck(package_id_list_1a, package_hash)
@@ -65,25 +65,37 @@ print_packages_on_truck(package_list_2)
 # add to address list
 
 #
-# while len(truck_1.visited_addresses) < len(package_list_1):
+while len(truck_1.visited_addresses) < len(package_list_1):
+    min_index = -1
+    min_address = ''
+    min_dist = sys.float_info.max
 
-min_index = -1
-min_address = ''
-min_dist = sys.float_info.max
+    origin = curr_location
+    distance_obj = distance_table[origin]
+    #for origin, distance_obj in distance_table.items():
+    #if origin == curr_location:
+    for index, package in enumerate(package_list_1):
+        destination = package.address
+        print("current location: " + origin)
+        print("address: " + destination)
+        print("distance: " + str(distance_obj[destination]))
+        if not package.is_delivered() and distance_obj[destination] < min_dist:
+            min_index = index
+            min_address = destination
+            min_dist = distance_obj[destination]
 
-for origin, distance_obj in distance_table.items():
-    if origin == curr_location:
-        for index, package in enumerate(package_list_1):
-            destination = package.address
-            print("current location: " + origin)
-            print("address: " + destination)
-            print("distance: " + str(distance_obj[destination]))
-            if not package.is_delivered() and distance_obj[destination] < min_dist:
-                min_index = index
-                min_address = destination
-                min_dist = distance_obj[destination]
-        print("min_address: " + min_address)
-        print("min_dist: " + str(min_dist))
-        package_list_1[min_index].update_status('DELIVERED')
-        truck_1.visited_addresses.append(min_address)
+    for index in range(min_index, len(package_list_1)):
+        if package_list_1[index].address == min_address:
+            package_list_1[index].update_status('DELIVERED')
+            package_list_1[index].miles_driven += min_dist
+            truck_1.visited_addresses.append(min_address)
+    truck_1.curr_mileage += min_dist
+    curr_location = min_address
 
+print()
+print('packages after deliveries')
+print_packages_on_truck(package_list_1)
+
+print()
+print('address list')
+print(visited_addresses_1)

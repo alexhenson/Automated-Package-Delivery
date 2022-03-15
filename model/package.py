@@ -10,6 +10,7 @@ class Package:
         self.status = status
         self.time_delivered = time_delivered
         self.notes = notes
+        self.miles_driven = 0
 
     def __str__(self):
         return "ID: {:<3} Address: {:<40}{:<17} {} {:<6} Deadline: {:<9} Mass(kg): {:<3} Status: {:<11} Time Delivered: {} Sp. Notes: {:<60}".format(
