@@ -54,15 +54,36 @@ print_packages_on_truck(package_list_2)
 # print('one dimension:' + str(distance_table[0]))
 # print('three dimensions:' + str(distance_table[0][0][0]))
 
-for i, p1 in enumerate(package_list_1):
-    min_address = ''
-    min_dist = sys.float_info.max
+# while loop to access truck package list based on length of address list
+# variable to hold shortest distance and address info
+# use dictionary to instantly access addresses by key and find shortest distance
+# save distance if less than current lowest distance
+# save address
+#
+# have truck deliver package to that address
+# update current location and mileage
+# add to address list
 
-    for j, p2 in enumerate(package_list_1):
-        #if
-        print(distance_table[curr_location])
-        #
-        print(package_list_1[j].address)
-            #package_list_1[0]
+#
+# while len(truck_1.visited_addresses) < len(package_list_1):
 
-### Need to access the dictionary!
+min_index = -1
+min_address = ''
+min_dist = sys.float_info.max
+
+for origin, distance_obj in distance_table.items():
+    if origin == curr_location:
+        for index, package in enumerate(package_list_1):
+            destination = package.address
+            print("current location: " + origin)
+            print("address: " + destination)
+            print("distance: " + str(distance_obj[destination]))
+            if not package.is_delivered() and distance_obj[destination] < min_dist:
+                min_index = index
+                min_address = destination
+                min_dist = distance_obj[destination]
+        print("min_address: " + min_address)
+        print("min_dist: " + str(min_dist))
+        package_list_1[min_index].update_status('DELIVERED')
+        truck_1.visited_addresses.append(min_address)
+

@@ -1,6 +1,6 @@
 class Package:
-    def __init__(self, id, address, city, state, zip_code, deadline, mass, status, time_delivered, notes):
-        self.id = id
+    def __init__(self, package_id, address, city, state, zip_code, deadline, mass, status, time_delivered, notes):
+        self.package_id = package_id
         self.address = address
         self.city = city
         self.state = state
@@ -10,11 +10,10 @@ class Package:
         self.status = status
         self.time_delivered = time_delivered
         self.notes = notes
-        self.mileage = 0  #distance traveled from the previous delivery to have the truck add up all the mileage at the end to know distance traveled so far
 
     def __str__(self):
         return "ID: {:<3} Address: {:<40}{:<17} {} {:<6} Deadline: {:<9} Mass(kg): {:<3} Status: {:<11} Time Delivered: {} Sp. Notes: {:<60}".format(
-            self.id,
+            self.package_id,
             self.address,
             self.city,
             self.state,
