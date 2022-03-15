@@ -19,3 +19,6 @@ class Truck:
             self.curr_location,
             self.curr_mileage,
             self.curr_time)
+
+    def calc_time_traveled(self, distance):
+        return distance / self.speed

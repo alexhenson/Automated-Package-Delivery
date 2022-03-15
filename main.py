@@ -99,3 +99,7 @@ print_packages_on_truck(package_list_1)
 print()
 print('address list')
 print(visited_addresses_1)
+
+print()
+print('total mileage')
+print(truck_1.curr_mileage)
