@@ -46,7 +46,7 @@ print('Truck 1:')
 print_packages_on_truck(package_list_1)
 print('Truck 2:')
 print_packages_on_truck(package_list_2)
-
+ # new comment
 
 while len(truck_1.visited_addresses) < len(package_list_1):
     min_index = -1
