@@ -11,4 +11,4 @@ def load_packages_on_truck(package_id_list, package_hash):
 def print_packages_on_truck(undelivered_package_list):
     # Print out package info
     for i, package_id in enumerate(undelivered_package_list):
-        print("ID: " + undelivered_package_list[i].package_id + ", Address: " + undelivered_package_list[i].address + ", Status: " + undelivered_package_list[i].status + ", Miles Driven: " + str(undelivered_package_list[i].miles_driven))
+        print("ID: " + undelivered_package_list[i].package_id + ", Address: " + undelivered_package_list[i].address + ", Status: " + undelivered_package_list[i].status + ", Miles Driven: " + str(undelivered_package_list[i].miles_driven) + ", Time Delivered: " + str(undelivered_package_list[i].time_delivered))
