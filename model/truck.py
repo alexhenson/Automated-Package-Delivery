@@ -1,12 +1,14 @@
+from datetime import datetime
+
+
 class Truck:
-    def __init__(self, truck_id, package_list, visited_addresses, curr_location,
-                 curr_mileage, curr_time):
+    def __init__(self, truck_id, package_list):
         self.truck_id = truck_id
         self.package_list = package_list
-        self.visited_addresses = visited_addresses
-        self.curr_location = curr_location
-        self.curr_mileage = curr_mileage # this should be total miles and be derived
-        self.curr_time = curr_time
+        self.visited_addresses = []
+        self.curr_location = 'HUB'
+        self.curr_mileage = 0
+        self.curr_time = datetime(2022, 3, 16, 8, 0, 0)
         self.speed = 18
 
     # need current location, current mileage, current time (current time can be the delivery time for the package)
