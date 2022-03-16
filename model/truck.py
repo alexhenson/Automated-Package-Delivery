@@ -21,4 +21,6 @@ class Truck:
             self.curr_time)
 
     def calc_time_traveled(self, distance):
-        return distance / self.speed
+        return int((distance / self.speed) * 3600)
+
+

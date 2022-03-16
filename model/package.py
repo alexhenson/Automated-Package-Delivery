@@ -32,7 +32,7 @@ class Package:
             self.status = new_status
 
     def update_time_delivered(self, new_time_delivered):
-        #check if it's a time object
+        # check if it's a time object
         self.time_delivered = new_time_delivered
 
     def is_delivered(self):
