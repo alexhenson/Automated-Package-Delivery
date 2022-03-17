@@ -22,13 +22,17 @@ distance_table = load_distance_table_data(DISTANCE_CSV)
 print("Packages from Hashtable:")
 # Fetch data from Hash Table
 for i in range(len(package_hash.table)):
-    print("{:<2}. {}".format(i, [str(p) for a, p in package_hash.get_bucket(str(i + 1))]))  # 1 to 40 is sent to my_hash.search()
+    print("{:<2}. {}".format(i, [str(p) for a, p in package_hash.get_bucket(str(i + 1))]))
 
 print(distance_table)
 
-package_id_list_1 = [14, 15, 16, 34, 20, 21, 40, 4, 29, 7, 1, 22, 24, 19]
-package_id_list_2 = [3, 13, 39, 30, 8, 37, 38, 5, 10, 36, 17, 12, 23, 18, 11]
-package_id_list_3 = [25, 26, 31, 32, 6, 28, 2, 33, 27, 35, 9]
+# Figure out package 13
+
+package_id_list_1 = [1, 29, 7, 40, 4, 2, 33, 17, 21, 24]
+package_id_list_2 = [13, 39, 14, 15, 16, 34, 19, 20, 3, 18, 36, 38, 30, 8, 37, 5]
+package_id_list_3 = [6, 9, 10, 11, 12, 22, 23, 25, 26, 27, 28, 31, 32, 35]
+
+
 
 TRUCK_1_2_DEPARTURE_TIME = datetime(2022, 3, 16, 8, 0, 0)
 
@@ -67,11 +71,11 @@ print('address list for truck 1')
 print(truck_1.visited_addresses)
 
 print()
-print('total mileage before HUB for truck 2')
+print('total mileage for truck 2')
 print(truck_2.curr_mileage)
 
 print()
-print('current time before HUB for truck 2')
+print('current time for truck 2')
 print(truck_2.curr_time)
 
 print()
@@ -95,3 +99,25 @@ print(truck_1.curr_time)
 
 TRUCK_3_DEPARTURE_TIME = truck_1.curr_time
 truck_3 = Truck(3, package_list_3, TRUCK_3_DEPARTURE_TIME)
+make_deliveries(truck_3, package_list_3, distance_table)
+
+print()
+print('total mileage for truck 3')
+print(truck_3.curr_mileage)
+
+print()
+print('current time for truck 3')
+print(truck_3.curr_time)
+
+print()
+print('packages after deliveries for truck 3')
+print_packages_on_truck(package_list_3)
+
+print()
+print('address list for truck 3')
+print(truck_3.visited_addresses)
+
+print("Packages from Hashtable:")
+# Fetch data from Hash Table
+for i in range(len(package_hash.table)):
+    print("{:<2}. {}".format(i, [str(p) for a, p in package_hash.get_bucket(str(i + 1))]))

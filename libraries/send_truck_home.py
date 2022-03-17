@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 
 def send_truck_home(truck_obj, distance_table):

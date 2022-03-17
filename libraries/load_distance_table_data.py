@@ -1,7 +1,6 @@
 import csv
 
 distance_table = {}
-#new_distance_table = []
 
 
 def load_distance_table_data(distance_file):
@@ -24,7 +23,3 @@ def load_distance_table_data(distance_file):
                     distance_table[a][b] = distance_table[b][a]
 
     return distance_table
-
-    # with open(package_file) as packages:
-    #     for row in csv.DictReader(packages):
-    #         print(row['Address'], distance_table[row["Address"]]["HUB"])
