@@ -1,6 +1,8 @@
 from datetime import timedelta
 
 
+# This method will send a truck to the HUB from its current location and update the relevant information.
+# O(1) time complexity
 def send_truck_home(truck_obj, distance_table):
     distance_to_hub = distance_table[truck_obj.curr_location]['HUB']
     truck_obj.curr_mileage += distance_to_hub

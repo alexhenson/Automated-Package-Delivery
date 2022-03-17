@@ -7,6 +7,9 @@ SIZE_OF_HASH = 20
 package_hash = ChainingHashTable(SIZE_OF_HASH)
 
 
+# This method parses out the data from the package_file.csv file into Package objects
+# Then the Package objects are inserted into the hash table
+# O(n) time and space complexity
 def load_package_data(file_name):
     with open(file_name) as packages:
         package_data = csv.reader(packages, delimiter=',')
@@ -22,9 +25,8 @@ def load_package_data(file_name):
             notes = package[7]
 
             # package object
-            p = Package(package_id, address, city, state, zip_code, deadline, mass, "AT HUB", None, notes)
-            #print(p)
+            p = Package(package_id, address, city, state, zip_code, deadline, mass, "AT_HUB", None, notes)
 
             # insert it into the hash table
             package_hash.insert(package_id, p)
-        return package_hash
+    return package_hash

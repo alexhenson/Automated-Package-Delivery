@@ -1,5 +1,8 @@
-from pprint import pprint
-from datetime import datetime, timedelta
+# First Name: Alex
+# Last Name: Chhieng-Henson
+# Student ID: 003382010
+
+from datetime import datetime
 
 from libraries.load_package_data import load_package_data
 from libraries.load_distance_table_data import load_distance_table_data
@@ -11,30 +14,22 @@ from libraries.send_truck_home import send_truck_home
 PACKAGE_CSV = 'csv_files/package_file.csv'
 DISTANCE_CSV = 'csv_files/distance_table.csv'
 
-
 # Load package_file CSV file into hash table
 package_hash = load_package_data(PACKAGE_CSV)
 
 # Load distance_table CSV file into variable
 distance_table = load_distance_table_data(DISTANCE_CSV)
 
-
 print("Packages from Hashtable:")
 # Fetch data from Hash Table
 for i in range(len(package_hash.table)):
     print("{:<2}. {}".format(i, [str(p) for a, p in package_hash.get_bucket(str(i + 1))]))
 
-print(distance_table)
-
-# Figure out package 13
-
 package_id_list_1 = [1, 29, 7, 40, 4, 2, 33, 17, 21, 24]
 package_id_list_2 = [13, 39, 14, 15, 16, 34, 19, 20, 3, 18, 36, 38, 30, 8, 37, 5]
 package_id_list_3 = [6, 9, 10, 11, 12, 22, 23, 25, 26, 27, 28, 31, 32, 35]
 
-
-
-TRUCK_1_2_DEPARTURE_TIME = datetime(2022, 3, 16, 8, 0, 0)
+TRUCK_1_2_DEPARTURE_TIME = datetime(2022, 3, 18, 8, 0, 0)
 
 package_list_1 = load_packages_on_truck(package_id_list_1, package_hash)
 package_list_2 = load_packages_on_truck(package_id_list_2, package_hash)

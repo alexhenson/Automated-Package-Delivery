@@ -1,6 +1,4 @@
-from datetime import datetime
-
-
+# This class shows the attribute information of a Truck object
 class Truck:
     def __init__(self, truck_id, package_list, curr_time):
         self.truck_id = truck_id
@@ -9,9 +7,8 @@ class Truck:
         self.curr_location = 'HUB'
         self.curr_mileage = 0
         self.curr_time = curr_time
-        self.speed = 18
+        self.SPEED = 18
 
-    # need current location, current mileage, current time (current time can be the delivery time for the package)
     def __str__(self):
         return "Truck ID:{:<5} Undelivered Packages: {:<40} Visited Addresses: {:<3} " \
                "Current Location: {} Current Mileage: {} Current Time {}".format(
@@ -22,7 +19,8 @@ class Truck:
             self.curr_mileage,
             self.curr_time)
 
+    # Uses the constant SPEED of 18 mph to determine elapsed time by miles driven
     def calc_time_traveled(self, distance):
-        return int((distance / self.speed) * 3600)
+        return int((distance / self.SPEED) * 3600)
 
 
