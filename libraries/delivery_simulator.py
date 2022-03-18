@@ -17,6 +17,9 @@ package_hash = load_package_data(PACKAGE_CSV)
 distance_table = load_distance_table_data(DISTANCE_CSV)
 
 
+# This method will simulate the entire delivery process up until the time limit
+# imposed by the user.
+# O(n) there is only one for loop in this method to print out package data
 def delivery_simulator(time_limit):
     package_id_list_1 = [1, 29, 7, 40, 4, 2, 33, 17, 21, 24]
     package_id_list_2 = [13, 39, 14, 15, 16, 34, 19, 20, 3, 18, 36, 38, 30, 8, 37, 5]
@@ -33,7 +36,7 @@ def delivery_simulator(time_limit):
     make_deliveries(truck_1, package_list_1, distance_table, time_limit)
     make_deliveries(truck_2, package_list_2, distance_table, time_limit)
 
-    # Bring truck 1 back home if all packages delivered
+    # Bring truck 1 back home if all packages delivered and send out truck 3
     if check_if_all_packages_delivered(package_list_1):
         send_truck_home(truck_1, distance_table)
         package_list_3 = load_packages_on_truck(package_id_list_3, package_hash)
@@ -43,11 +46,13 @@ def delivery_simulator(time_limit):
         truck_3 = Truck(3, package_list_3, truck_3_departure_time)
         make_deliveries(truck_3, package_list_3, distance_table, truck_3_time_limit)
 
+    # Print out all package data from hash table
     print()
     print('Package Info')
     for i in range(40):
         print("{:<2}. {}".format(i, package_hash.search(i + 1)))
 
+    # Print out all package data by truck
     print()
     print('Package Info by Truck')
     print('Truck 1:')
@@ -60,6 +65,7 @@ def delivery_simulator(time_limit):
         print('Truck 3:')
         print_packages_on_truck(package_list_3)
 
+    # If all packages delivered, print out Total Miles and Final Delivery Time
     if check_if_all_packages_delivered_hash(package_hash):
         print()
         print('Total Miles Driven: ' + str(truck_1.curr_mileage + truck_2.curr_mileage + truck_3.curr_mileage))

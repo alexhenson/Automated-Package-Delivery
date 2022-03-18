@@ -14,6 +14,7 @@ class Package:
         self.miles_driven = 0  # May not use this
 
     def __str__(self):
+        # This if statement will remove date information from datetime object before printing
         if self.time_delivered is not None:
             time = self.time_delivered.strftime("%H:%M:%S")
             return "ID: {:<3} " \
@@ -41,16 +42,16 @@ class Package:
                    "Status: {:<11} " \
                    "Time Delivered: {} " \
                    "Sp. Notes: {:<60}".format(
-                self.package_id,
-                self.address,
-                self.city,
-                self.state,
-                self.zip_code,
-                self.deadline,
-                self.mass,
-                self.status,
-                self.time_delivered,
-                self.notes)
+                    self.package_id,
+                    self.address,
+                    self.city,
+                    self.state,
+                    self.zip_code,
+                    self.deadline,
+                    self.mass,
+                    self.status,
+                    self.time_delivered,
+                    self.notes)
 
     # Updates the status of the package from AT_HUB -> EN_ROUTE -> DELIVERED
     def update_status(self, new_status):

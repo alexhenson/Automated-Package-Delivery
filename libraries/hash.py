@@ -68,6 +68,3 @@ class ChainingHashTable:
         bucket = self.hash_func(key) % len(self.table)
         bucket_list = self.table[bucket]
         return bucket_list
-
-
-

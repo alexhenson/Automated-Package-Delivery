@@ -1,10 +1,11 @@
-# This is code for the command line interface to check on relevant package information
 from datetime import datetime
 
 STARTING_TIME = datetime(2022, 3, 18, 8, 0, 0)
 STARTING_DATE_STR = '2022-03-18'
 
 
+# This is code for the command line interface to validate user input and
+# return a time in seconds to be used to report on the package deliveries
 def return_time_info():
     while True:
         time = input(
@@ -13,7 +14,7 @@ def return_time_info():
 
         if time.upper() == 'X':
             break
-        elif len(time) != 4 or not time.isdigit() or int(time) > 1700:
+        elif len(time) != 4 or not time.isdigit() or 800 > int(time) > 1700:
             continue
 
         dt_tuple = tuple([int(x) for x in STARTING_DATE_STR.split('-')]) + tuple([int(time[:2])]) + tuple(

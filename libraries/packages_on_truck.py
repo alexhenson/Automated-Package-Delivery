@@ -24,4 +24,3 @@ def print_packages_on_truck(undelivered_package_list):
                   ", Status: " + undelivered_package_list[i].status +
                   ", Miles From Last Delivery: " + str(undelivered_package_list[i].miles_driven) +
                   ", Time Delivered: " + str(undelivered_package_list[i].time_delivered))
-

@@ -48,4 +48,3 @@ def make_deliveries(truck_obj, package_list, distance_table, time_limit):
                 package_list[index].miles_driven += min_dist
                 package_list[index].time_delivered = truck_obj.curr_time
                 truck_obj.visited_addresses.append(min_address)
-
