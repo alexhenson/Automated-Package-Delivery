@@ -13,7 +13,6 @@ def make_deliveries(truck_obj, package_list, distance_table, time_limit):
         min_index = -1
         min_address = ''
         min_dist = sys.float_info.max
-
         origin = truck_obj.curr_location
         distance_obj = distance_table[origin]
 
@@ -33,6 +32,7 @@ def make_deliveries(truck_obj, package_list, distance_table, time_limit):
         time_traveled = truck_obj.calc_time_traveled(min_dist)
         total_time_traveled += time_traveled
 
+        # Reached the user imposed time limit for delivery information
         if total_time_traveled >= time_limit:
             break
 
