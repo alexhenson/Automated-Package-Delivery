@@ -6,7 +6,9 @@ import sys
 # address of the delivered package will be added to the visited_addresses list. The method uses a
 # while loop that will run until the length of address list is the same as the length of the package list.
 # O(n^2) time complexity because of the while and nested for loop
-def make_deliveries(truck_obj, package_list, distance_table):
+def make_deliveries(truck_obj, package_list, distance_table, time_limit):
+    total_time_traveled = 0
+
     while len(truck_obj.visited_addresses) < len(package_list):
         min_index = -1
         min_address = ''
@@ -25,10 +27,16 @@ def make_deliveries(truck_obj, package_list, distance_table):
                 min_index = index
                 min_address = destination
                 min_dist = distance_obj[destination]
+
         # Once the above for loop is finished, the data for the next closest, valid destination will
         # saved.  And the code below will now update truck related data.
-        time_traveled_1 = truck_obj.calc_time_traveled(min_dist)
-        truck_obj.curr_time += timedelta(seconds=time_traveled_1)
+        time_traveled = truck_obj.calc_time_traveled(min_dist)
+        total_time_traveled += time_traveled
+
+        if total_time_traveled >= time_limit:
+            break
+
+        truck_obj.curr_time += timedelta(seconds=time_traveled)
         truck_obj.curr_mileage += min_dist
         truck_obj.curr_location = min_address
 

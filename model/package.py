@@ -14,13 +14,33 @@ class Package:
         self.miles_driven = 0  # May not use this
 
     def __str__(self):
-        return "ID: {:<3} " \
-               "Address: {:<40}{:<17} {} {:<6} " \
-               "Deadline: {:<9} " \
-               "Mass(kg): {:<3} " \
-               "Status: {:<11} " \
-               "Time Delivered: {} " \
-               "Sp. Notes: {:<60}".format(
+        if self.time_delivered is not None:
+            time = self.time_delivered.strftime("%H:%M:%S")
+            return "ID: {:<3} " \
+                   "Address: {:<40}{:<17} {} {:<6} " \
+                   "Deadline: {:<9} " \
+                   "Mass(kg): {:<3} " \
+                   "Status: {:<11} " \
+                   "Time Delivered: {} " \
+                   "Sp. Notes: {:<60}".format(
+                    self.package_id,
+                    self.address,
+                    self.city,
+                    self.state,
+                    self.zip_code,
+                    self.deadline,
+                    self.mass,
+                    self.status,
+                    time,
+                    self.notes)
+        else:
+            return "ID: {:<3} " \
+                   "Address: {:<40}{:<17} {} {:<6} " \
+                   "Deadline: {:<9} " \
+                   "Mass(kg): {:<3} " \
+                   "Status: {:<11} " \
+                   "Time Delivered: {} " \
+                   "Sp. Notes: {:<60}".format(
                 self.package_id,
                 self.address,
                 self.city,

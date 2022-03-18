@@ -2,14 +2,24 @@
 from datetime import datetime
 
 STARTING_TIME = datetime(2022, 3, 18, 8, 0, 0)
-STARTING_DATE = '2022-03-18'
+STARTING_DATE_STR = '2022-03-18'
 
-def check_on_delivery_status():
+
+def return_time_info():
     while True:
         time = input(
-            "Enter a time after 08:00:00 (in military time, i.e., 0900) to check package status or 'X' to exit: ")
-        print()
+            "Enter a time after 08:00:00 but before 17:00:00 (in military time, i.e., 0900) to check package status "
+            "or 'X' to exit: ")
+
         if time.upper() == 'X':
             break
-        elif len(time) == 4 and time.isdigit() and time > STARTING_TIME:
-        else:
+        elif len(time) != 4 or not time.isdigit() or int(time) > 1700:
+            continue
+
+        dt_tuple = tuple([int(x) for x in STARTING_DATE_STR.split('-')]) + tuple([int(time[:2])]) + tuple(
+            [int(time[2:])])
+        dt_obj = datetime(*dt_tuple)
+        time_difference = dt_obj - STARTING_TIME
+
+        if dt_obj > STARTING_TIME:
+            return time_difference.total_seconds()

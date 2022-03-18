@@ -14,7 +14,7 @@ class ChainingHashTable:
     # This hash function takes the ID of the package subtracts 1 and then inserts it into the index that is
     # the result mod the length of the table
     def hash_func(self, key):
-        return (int(key) - 1) % len(self.table)
+        return int(key) % len(self.table)
 
     # Inserts a new item into the hash table.
     def insert(self, key, item):  # does both insert and update
