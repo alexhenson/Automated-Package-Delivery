@@ -1,5 +1,19 @@
-# This class shows the attribute information of a Package object
 class Package:
+    """The Package class provides information on how to build Package objects to be delivered
+
+    Attributes:
+        package_id: A string indicating the package ID number
+        address: A string indicating address to be delivered to
+        city: A string with the city
+        state: A string with the state
+        zip_code: A string with the zip code
+        deadline: A string with a time delivery deadline
+        mass: A string with the mass of the package
+        status: A string with one of three delivery statuses
+        time_delivered: A datetime object with the final delivery time
+        notes: A string with any special notes is applicable
+        miles_driven: An integer that represents how many miles since the last delivery once the package has been delivered
+    """
     def __init__(self, package_id, address, city, state, zip_code, deadline, mass, status, time_delivered, notes):
         self.package_id = package_id
         self.address = address

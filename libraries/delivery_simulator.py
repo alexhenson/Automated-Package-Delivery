@@ -17,24 +17,22 @@ package_hash = load_package_data(PACKAGE_CSV)
 distance_table = load_distance_table_data(DISTANCE_CSV)
 
 
-# O(n) there is only one for loop in this method to print out package data
 def delivery_simulator(time_limit):
     """Simulates package delivery for the three trucks
 
     This method will simulate the entire delivery process up until the time limit imposed by the user
 
     Args:
-        time_limit: This function takes no arguments
+        time_limit: This argument imposes a time limit in seconds on the delivery simulation
 
     Returns:
-        time_difference.total_seconds(): This function returns a singular argument that represents the total
-        time difference between the user input time and the delivery start time
+        N/A: This function does not return any value
 
     Raises:
         N/A: This function raises no errors/has no error checking
 
-    Time complexity: Because return_time_info has no loops, it's time complexity is O(1)
-    Space complexity: Because a tuple and a few variables are utilized the space complexity is O(n)
+    Time complexity: Because delivery_simulator has only one for loop, it's time complexity is O(n)
+    Space complexity: Because only lists, a hashtable and a few variables are utilized the space complexity is O(n)
     """
     package_id_list_1 = [1, 29, 7, 40, 4, 2, 33, 17, 21, 24]
     package_id_list_2 = [13, 39, 14, 15, 16, 34, 19, 20, 3, 18, 36, 38, 30, 8, 37, 5]

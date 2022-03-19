@@ -1,5 +1,16 @@
 # This class shows the attribute information of a Truck object
 class Truck:
+    """The Package class provides information on how to build Package objects to be delivered
+
+    Attributes:
+        truck_id: A string indicating one of three truck ID numbers
+        package_list: A list of packages specific to current truck object
+        visited_addresses: A list of addresses that grows with each completed package delivery
+        curr_location: A string containing the current address of the truck
+        curr_mileage: A floating point value containing the cumulative mileage of the truck
+        curr_time: A datetime object with the current time for the current truck
+        SPEED: An integer with the constant truck speed of 18 MPH
+    """
     def __init__(self, truck_id, package_list, curr_time):
         self.truck_id = truck_id
         self.package_list = package_list

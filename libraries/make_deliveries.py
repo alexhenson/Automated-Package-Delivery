@@ -2,11 +2,29 @@ from datetime import timedelta
 import sys
 
 
-# This method will execute the Nearest Neighbor solution.  Each time a package is delivered, the
-# address of the delivered package will be added to the visited_addresses list. The method uses a
-# while loop that will run until the length of address list is the same as the length of the package list.
 # O(n^2) time complexity because of the while and nested for loop
 def make_deliveries(truck_obj, package_list, distance_table, time_limit):
+    """Uses the Nearest Neighbor solution to deliver packages
+
+    Each time a package is delivered, the address of the delivered package will be added to the visited_addresses
+    list. The method uses a while loop that will run until the length of address list is the same as the length of
+    the package list.
+
+    Args:
+        truck_obj: This argument is a truck object that contains a list of packages
+        package_list: This argument is the list of packages assigned to a particular truck
+        distance_table: This argument is the nested dictionary of distances and addresses
+        time_limit: This argument is the user defined time limit (in seconds) for the deliveries
+
+    Returns:
+        N/A: This function does not return a value
+
+    Raises:
+        N/A: This function raises no errors/has no error checking
+
+    Time complexity: Because of the for loops nested in the while loop, it's time complexity is O(n^2)
+    Space complexity: Because no new complex data structures are created the space complexity is O(n)
+    """
     total_time_traveled = 0
 
     while len(truck_obj.visited_addresses) < len(package_list):

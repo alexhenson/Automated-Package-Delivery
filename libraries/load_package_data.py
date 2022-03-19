@@ -3,14 +3,27 @@ from model.package import Package
 import csv
 
 SIZE_OF_HASH = 20
-
 package_hash = ChainingHashTable(SIZE_OF_HASH)
 
 
-# This method parses out the data from the package_file.csv file into Package objects
-# Then the Package objects are inserted into the hash table
-# O(n) time and space complexity
 def load_package_data(file_name):
+    """Takes a CSV file and inputs the data into a hashtable
+
+    This method parses out the data from the package_file.csv file into Package objects then the Package objects
+    are inserted into the hash table
+
+    Args:
+        file_name: This argument is a CSV file to be converted into a hashtable
+
+    Returns:
+        package_hash: This function returns a hashtable
+
+    Raises:
+        N/A: This function raises no errors/has no error checking
+
+    Time complexity: Because of the for loop, it's time complexity is O(n)
+    Space complexity: Because of the chaining hash table the space complexity is O(n)
+    """
     with open(file_name) as packages:
         package_data = csv.reader(packages, delimiter=',')
         next(package_data)  # skip header

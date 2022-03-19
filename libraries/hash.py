@@ -1,7 +1,17 @@
 # Ref: zyBooks: Figure 7.8.2: Hash table using chaining.
 
-# HashTable class using chaining.
+
 class ChainingHashTable:
+    """Hashtable class using chaining
+
+    There are five functions:
+
+    hash_func: Returns a hash value based on a key
+    insert: Inserts objects into the hash table based on a key
+    search: Searches hashtable based on a key and returns an object
+    remove: Removes an object from the hashtable based on a key
+    get_bucket: Returns a bucket in the hashtable based on a key
+    """
     # Constructor with optional initial capacity parameter.
     # Assigns all buckets with an empty list.
     def __init__(self, initial_capacity=40):

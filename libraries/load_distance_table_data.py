@@ -3,12 +3,24 @@ import csv
 distance_table = {}
 
 
-# This method takes a CSV file and converts it into a nested dictionary
-# The first for loop will add the distances in miles to each row
-# The second for loop ensures that each row has the same number of distances to and from each address
-# First for loop is O(n)
-# Second for loop is O(n^2) with the nested loop
 def load_distance_table_data(distance_file):
+    """Takes a CSV file and converts it into a nested dictionary
+
+    The first for loop will add the distances in miles to each row. The second for loop ensures that each row has
+    the same number of distances to and from each address
+
+    Args:
+        distance_file: This argument is a CSV file to be converted to a nested dictionary
+
+    Returns:
+        distance_table: This function returns a nested dictionary
+
+    Raises:
+        N/A: This function raises no errors/has no error checking
+
+    Time complexity: Because of the nested for loop, it's time complexity is O(n^2)
+    Space complexity: Because of the nested for loop the space complexity is O(n^2)
+    """
     with open(distance_file) as distances:
         rows = list(csv.reader(distances))
         cols = [row[0] for row in rows]
