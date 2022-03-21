@@ -1,4 +1,4 @@
-# Ref: zyBooks: Figure 7.8.2: Hash table using chaining.
+# Ref: zyBooks: Figure 7.8.2: Hash table using chaining see works cited section L in Word Document
 
 
 class ChainingHashTable:
